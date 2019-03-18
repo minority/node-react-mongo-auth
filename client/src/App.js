@@ -8,8 +8,9 @@ class App extends Component {
   componentDidMount() {
     fetch("/api/main")
       .then(res => res.json())
-      .then(data => {
-        this.setState({ data });
+      .then(data => this.setState({ data }))
+      .catch(error => {
+        throw new Error("Api server not responsed");
       });
   }
 

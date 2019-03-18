@@ -1,0 +1,3 @@
+# host options
+PORT=3003
+HOST=http://localhost

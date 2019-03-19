@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon --exec babel-node src/index.js"
+    "start": "babel-node src/index.js",
+    "dev": "nodemon --exec babel-node  src/index.js",
+    "debug": "nodemon --exec DEBUG=http,mail,express:* babel-node  src/index.js"
   },
   "author": "",
   "license": "ISC",
@@ -24,6 +26,7 @@
     "body-parser": "^1.18.3",
     "cors": "^2.8.5",
     "dotenv": "^7.0.0",
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "mongoose": "^5.4.19"
   }
 }

@@ -1,4 +1,4 @@
 import main from "./main";
-import sub from "./sub";
+import user from "./user";
 
-export default [main, sub];
+export default [main, user];

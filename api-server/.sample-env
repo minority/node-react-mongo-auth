@@ -1,3 +1,9 @@
+#environment
+NODE_ENV=dev
+
 # host options
-PORT=3003
+PORT=3002
 HOST=http://localhost
+
+# mongo connect uri
+MONGO_URI=mongodb://localhost/test

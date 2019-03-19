@@ -1,4 +1,5 @@
 # IntellijIdea files
 *.iml
 .idea
+.vscode
 out

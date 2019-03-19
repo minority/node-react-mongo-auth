@@ -1,3 +1,4 @@
+import mongoose from "mongoose";
 import express from "express";
 import bodyParser from "body-parser";
 import cors from "cors";
@@ -7,6 +8,9 @@ import config from "./config";
 
 // express
 const app = express();
+mongoose
+  .connect(config.mongoUri, { useNewUrlParser: true })
+  .catch(err => console.log(err));
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());

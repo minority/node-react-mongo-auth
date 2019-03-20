@@ -1,6 +1,3 @@
-#environment
-NODE_ENV=dev
-
 # host options
 PORT=3002
 HOST=http://localhost

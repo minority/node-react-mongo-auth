@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "babel-node src/index.js",
-    "dev": "nodemon --exec babel-node  src/index.js",
-    "debug": "nodemon --exec DEBUG=http,mail,express:* babel-node  src/index.js"
+    "start": "NODE_ENV=production babel-node src/index.js",
+    "dev": "nodemon --exec NODE_ENV=development babel-node src/index.js",
+    "debug": "nodemon --exec NODE_ENV=development DEBUG=http,mail,express:* babel-node src/index.js"
   },
   "author": "",
   "license": "ISC",
@@ -27,6 +27,9 @@
     "cors": "^2.8.5",
     "dotenv": "^7.0.0",
     "express": "^4.16.4",
-    "mongoose": "^5.4.19"
+    "http-errors": "^1.7.2",
+    "mongoose": "^5.4.19",
+    "morgan": "^1.9.1",
+    "winston": "^3.2.1"
   }
 }

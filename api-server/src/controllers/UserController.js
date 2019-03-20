@@ -1,10 +1,10 @@
 import UserModel from "../models/User";
 
 class UserController {
-  index(req, res) {
+  index(req, res, next) {
     UserModel.find()
       .then(users => res.json(users))
-      .catch(error => res.send(error));
+      .catch(error => next(error));
   }
 
   create(req, res) {

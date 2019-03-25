@@ -1,6 +1,13 @@
 # host options
-PORT=3002
+PORT=3003
 HOST=http://localhost
 
 # mongo connect uri
 MONGO_URI=mongodb://localhost/test
+
+# secrets for api token
+SECRET_TOKEN_ACCESS=secret
+EXPIRE_TOKEN_ACCESS=86400
+
+SECRET_TOKEN_REFRESH=secret
+EXPIRE_TOKEN_REFRESH=3600

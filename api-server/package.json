@@ -1,5 +1,5 @@
 {
-  "name": "content-erp-api",
+  "name": "node-react-mongo-auth-server",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -16,6 +16,7 @@
     "@babel/node": "^7.2.2",
     "@babel/plugin-transform-runtime": "^7.3.4",
     "@babel/preset-env": "^7.3.4",
+    "babel-eslint": "^10.0.1",
     "eslint": "^5.15.2",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-config-prettier": "^4.1.0",
@@ -23,12 +24,17 @@
     "nodemon": "^1.18.10"
   },
   "dependencies": {
+    "@babel/plugin-proposal-decorators": "^7.4.0",
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
     "cors": "^2.8.5",
     "dotenv": "^7.0.0",
     "express": "^4.16.4",
+    "express-json-validator-middleware": "^2.0.0",
     "http-errors": "^1.7.2",
+    "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.4.19",
+    "mongoose-unique-validator": "^2.0.2",
     "morgan": "^1.9.1",
     "winston": "^3.2.1"
   }

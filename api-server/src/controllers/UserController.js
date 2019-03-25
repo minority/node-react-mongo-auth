@@ -1,30 +1,34 @@
 import UserModel from "../models/User";
+import AppError from "../exeptions/AppError";
+import TryCatchErrorDecorator from "../decorators/TryCatchErrorDecorator";
 
 class UserController {
-  index(req, res, next) {
-    UserModel.find()
-      .then(users => res.json(users))
-      .catch(error => next(error));
+  @TryCatchErrorDecorator
+  async index(req, res) {
+    const users = await UserModel.find(-1);
+
+    res.json(users);
   }
 
-  create(req, res) {
+  @TryCatchErrorDecorator
+  async create(req, res) {
     const user = new UserModel({
       name: "User 1",
-      email: "test",
-      password: "test",
+      email: "test2",
+      password: "testtest1",
       token: "test"
     });
 
-    user
-      .save()
-      .then(() => res.json({ status: "success" }))
-      .catch(error => res.send(error));
+    await user.save();
+
+    res.json({ status: "success" });
   }
 
-  clear(req, res) {
-    UserModel.remove()
-      .then(() => res.json({ status: "success" }))
-      .catch(error => res.send(error));
+  @TryCatchErrorDecorator
+  async clear(req, res) {
+    await UserModel.remove();
+
+    res.json({ status: "success" });
   }
 }
 

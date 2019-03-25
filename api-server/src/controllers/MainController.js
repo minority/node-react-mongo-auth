@@ -1,5 +1,5 @@
 class MainController {
-  main(req, res) {
+  async main(req, res) {
     res.json({
       controller: "MainController",
       action: "main"

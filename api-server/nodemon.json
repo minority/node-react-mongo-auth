@@ -3,7 +3,7 @@
     "env": {
       "NODE_ENV": "development",
       "BABEL_DISABLE_CACHE": 1,
-      "PORT": 3002,
+      "PORT": 3003,
       "URL": "http://localhost"
     },
     "execMap": {

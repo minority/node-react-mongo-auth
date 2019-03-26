@@ -13,7 +13,7 @@ class AuthController {
     );
 
     if (!checkPassword) {
-      throw new AppError();
+      throw new AppError('Incorrect username or password', 401);
     }
 
     res.json(user);

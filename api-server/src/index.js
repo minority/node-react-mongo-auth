@@ -5,7 +5,7 @@ import cors from "cors";
 import morgan from "morgan";
 import httpError from "http-errors";
 import routes from "./routes";
-import errorHandler from "./middleware/errorHandler";
+import errorHandler from "./middleware/ErrorHandler";
 import config from "./config/app";
 
 const app = express();

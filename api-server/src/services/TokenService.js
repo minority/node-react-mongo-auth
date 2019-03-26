@@ -11,7 +11,7 @@ const sign = async (playload, secretToken, options) => {
   }
 };
 
-const signAccess = async user => {
+const createAccessToken = async user => {
   try {
     const payload = {
       id: user._id
@@ -31,7 +31,7 @@ const signAccess = async user => {
   }
 };
 
-const signRefresh = async user => {
+const createRefreshToken = async user => {
   try {
     const payload = {
       id: user._id
@@ -53,4 +53,4 @@ const signRefresh = async user => {
   }
 };
 
-export default { sign, signAccess, signRefresh };
+export default { sign, createAccessToken, createRefreshToken };

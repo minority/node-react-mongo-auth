@@ -1,6 +1,5 @@
 import mongoose, { Schema } from "mongoose";
 import uniqueValidator from "mongoose-unique-validator";
-import bcrypt from "bcryptjs";
 import AuthService from "../services/AuthService";
 
 const UserSchema = new Schema(

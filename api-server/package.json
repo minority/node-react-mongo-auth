@@ -26,6 +26,7 @@
   },
   "dependencies": {
     "ajv": "^6.10.0",
+    "ajv-errors": "^1.0.1",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
     "cors": "^2.8.5",
@@ -36,6 +37,7 @@
     "mongoose": "^5.4.19",
     "mongoose-unique-validator": "^2.0.2",
     "morgan": "^1.9.1",
+    "randomatic": "^3.1.1",
     "winston": "^3.2.1"
   }
 }

@@ -1,4 +1,5 @@
 import bcrypt from "bcryptjs";
+import randomize from "randomatic";
 import AppError from "../exeptions/AppError";
 
 const checkPassword = async (password, passwordHash) => {
@@ -20,4 +21,8 @@ const hashPassword = async password => {
   }
 };
 
-export default { checkPassword, hashPassword };
+const generatePassword = password => {
+  return randomize("Aa0", 12);
+};
+
+export default { checkPassword, hashPassword, generatePassword };

@@ -4,7 +4,7 @@ export default (target, propertyKey, descriptor) => {
   return {
     async value(req, res, next) {
       try {
-        await fn.call(this, req, res);
+        await fn.call(this, req, res, next);
       } catch (error) {
         next(error);
       }

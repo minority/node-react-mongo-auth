@@ -13,7 +13,7 @@ class AuthValidator {
           type: "string",
           format: "email",
           errorMessage: {
-            format: "Field 'email' incorect"
+            format: "Field 'email' incorrect"
           }
         },
         password: {
@@ -36,7 +36,7 @@ class AuthValidator {
           type: "string",
           format: "email",
           errorMessage: {
-            format: "Field 'email' incorect"
+            format: "Field 'email' incorrect"
           }
         },
         name: {
@@ -45,7 +45,7 @@ class AuthValidator {
           maxLength: 30,
           pattern: "^[a-zA-Z0-9_ ]*$",
           errorMessage: {
-            pattern: "Field 'name' can contain only letters, spaces"
+            pattern: "Field 'name' can contain only letters and spaces"
           }
         }
       }

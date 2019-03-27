@@ -10,7 +10,8 @@ const normaliseErrorMessages = errors => {
         e.message.toUpperCase()[0] + e.message.slice(1)
       ];
     } else {
-      acc[e.dataPath] = [e.message.toUpperCase()[0] + e.message.slice(1)];
+      const key = e.params.missingProperty || e.params.additionalProperty;
+      acc[key] = [e.message.toUpperCase()[0] + e.message.slice(1)];
     }
     return acc;
   }, {});
@@ -20,7 +21,7 @@ const normaliseErrorMessages = errors => {
 
 const validate = async (data, schema) => {
   try {
-    const ajv = new Ajv({ allErrors: true, jsonPointers: true });
+    const ajv = new Ajv({ allErrors: true });
     AjvErrors(ajv);
     const validateFunction = ajv.compile(schema);
 

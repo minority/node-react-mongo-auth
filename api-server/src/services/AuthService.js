@@ -21,8 +21,8 @@ const hashPassword = async password => {
   }
 };
 
-const generatePassword = password => {
-  return randomize("Aa0", 12);
+const generatePassword = length => {
+  return randomize("Aa0", length);
 };
 
 export default { checkPassword, hashPassword, generatePassword };

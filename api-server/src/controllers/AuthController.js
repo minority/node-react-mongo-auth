@@ -3,13 +3,14 @@ import AuthService from "../services/AuthService";
 import ClientError from "../exeptions/ClientError";
 import TryCatchErrorDecorator from "../decorators/TryCatchErrorDecorator";
 import TokenService from "../services/TokenService";
+import AppError from "../exeptions/AppError";
 
 class AuthController {
   @TryCatchErrorDecorator
   async signin(req, res) {
     const user = await UserModel.findOne({ email: req.body.email });
     if (!user) {
-      throw new ClientError("Incorrect email or password", 401);
+      throw new ClientError("User not found", 404);
     }
 
     const checkPassword = await AuthService.checkPassword(
@@ -22,19 +23,39 @@ class AuthController {
     }
 
     const accessToken = await TokenService.createAccessToken(user);
-    const refreshToken = await TokenService.createRefreshToken(user);
+    const refreshTokenHash = await TokenService.createRefreshToken(user);
+    const refreshToken = await TokenService.addRefreshTokenUser(
+      user,
+      refreshTokenHash
+    );
 
-    res.json({ accessToken, refreshToken });
+    res.json({
+      accessToken,
+      refreshToken,
+      user: {
+        name: user.name,
+        email: user.email,
+        status: user.status
+      }
+    });
   }
 
   @TryCatchErrorDecorator
   async signup(req, res) {
-    const password = AuthService.generatePassword();
+    const isAlreadyUser = await UserModel.findOne({ email: req.body.email });
+    if (isAlreadyUser) {
+      throw new ClientError("This email is already registered", 409);
+    }
+
+    const password = AuthService.generatePassword(12);
+
+    console.log("Password ", password);
+
     const user = new UserModel({
       name: req.body.name,
       email: req.body.email,
-      password,
-      token: "test"
+      status: "inactive",
+      password: await AuthService.hashPassword(password)
     });
 
     /* send email activate */
@@ -45,10 +66,51 @@ class AuthController {
   }
 
   @TryCatchErrorDecorator
+  async refreshTokens(req, res) {
+    const refreshTokenRequest = req.body.refreshToken;
+
+    const verifyData = await TokenService.verifyRefreshToken(
+      refreshTokenRequest
+    );
+
+    if (!verifyData) {
+      throw new ClientError("Refresh token invalid or expired", 400);
+    }
+
+    const user = await UserModel.findOne({ _id: verifyData.id });
+
+    const isValid = await TokenService.checkRefreshTokenUser(
+      user,
+      refreshTokenRequest
+    );
+
+    if (!isValid) {
+      throw new ClientError("Refresh token invalid or expired", 400);
+    }
+
+    await TokenService.removeRefreshTokenUser(user, refreshTokenRequest);
+
+    const accessToken = await TokenService.createAccessToken(user);
+    const refreshTokenHash = await TokenService.createRefreshToken(user);
+    const refreshToken = await TokenService.addRefreshTokenUser(
+      user,
+      refreshTokenHash
+    );
+
+    res.json({ accessToken, refreshToken });
+  }
+
+  @TryCatchErrorDecorator
   async logout(req, res, next) {
-    res.json({
-      action: "logout"
-    });
+    const user = await UserModel.findOne({ _id: req.userId });
+    if (!user) {
+      throw new AppError("UserId not found in request", 401);
+    }
+
+    user.refreshTokens = [];
+    await user.save();
+
+    res.json({ status: "success" });
   }
 
   @TryCatchErrorDecorator
@@ -59,9 +121,9 @@ class AuthController {
   }
 
   @TryCatchErrorDecorator
-  async refreshTokens(req, res, next) {
+  async confirmation(req, res, next) {
     res.json({
-      action: "refreshTokens"
+      action: "confirmation"
     });
   }
 }

@@ -21,7 +21,7 @@ const normaliseErrorMessages = errors => {
 
 const validate = async (data, schema) => {
   try {
-    const ajv = new Ajv({ allErrors: true });
+    const ajv = new Ajv({ allErrors: true, jsonPointers: true });
     AjvErrors(ajv);
     const validateFunction = ajv.compile(schema);
 

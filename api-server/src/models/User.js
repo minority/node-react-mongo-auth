@@ -1,6 +1,12 @@
 import mongoose, { Schema } from "mongoose";
 import uniqueValidator from "mongoose-unique-validator";
-import AuthService from "../services/AuthService";
+
+const refreshTokens = new Schema({
+  token: {
+    type: String,
+    required: true
+  }
+});
 
 const UserSchema = new Schema(
   {
@@ -21,10 +27,12 @@ const UserSchema = new Schema(
       unique: true,
       trim: true
     },
-    token: {
+    status: {
       type: String,
-      required: true
-    }
+      enum: ["active", "inactive", "banned"],
+      default: "inactive"
+    },
+    refreshTokens: [refreshTokens]
   },
   {
     timestamps: true
@@ -33,22 +41,5 @@ const UserSchema = new Schema(
 
 mongoose.set("useCreateIndex", true);
 UserSchema.plugin(uniqueValidator);
-
-const onSaveUser = async function onSaveUser(next) {
-  try {
-    const user = this;
-
-    if (!user.isModified("password")) {
-      next();
-    }
-
-    user.password = await AuthService.hashPassword(user.password);
-
-    next();
-  } catch (err) {
-    next(err);
-  }
-};
-UserSchema.pre("save", onSaveUser);
 
 export default mongoose.model("User", UserSchema);

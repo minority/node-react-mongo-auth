@@ -6,7 +6,13 @@ const router = Router();
 
 router.post("/auth/signin", AuthValidator.signin, AuthController.signin);
 router.post("/auth/signup", AuthValidator.signup, AuthController.signup);
-router.post("/auth/refresh-tokens", AuthController.refreshTokens);
+router.post(
+  "/auth/refresh-tokens",
+  AuthValidator.refreshTokens,
+  AuthController.refreshTokens
+);
+router.post("/auth/logout", AuthValidator.checkAuth, AuthController.logout);
 router.post("/auth/restore", AuthController.restore);
+router.post("/auth/confirmation", AuthController.confirmation);
 
 export default router;

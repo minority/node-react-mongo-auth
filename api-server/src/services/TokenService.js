@@ -74,7 +74,7 @@ const addRefreshTokenUser = async (user, token) => {
   try {
     /* token limit count restriction */
 
-    if (user.refreshTokens.length >= 10) {
+    if (user.refreshTokens.length >= config.countTokenLimit) {
       user.refreshTokens = [];
     }
 

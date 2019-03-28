@@ -10,9 +10,12 @@ const expireAccess = process.env.EXPIRE_TOKEN_ACCESS;
 const secretRefresh = process.env.SECRET_TOKEN_REFRESH;
 const expireRefresh = process.env.EXPIRE_TOKEN_REFRESH;
 
+const countTokenLimit = process.env.TOKEN_LIMIT_COUNT_DIVICE;
+
 export default {
   secretAccess,
   expireAccess,
   secretRefresh,
-  expireRefresh
+  expireRefresh,
+  countTokenLimit
 };

@@ -99,9 +99,10 @@ class AuthValidator {
         }
 
         req.userId = verifyData.id;
+        next();
       }
 
-      next();
+      throw new ClientError("Unauthorized", 401);
     } catch (err) {
       next(err);
     }

@@ -34,8 +34,7 @@ class AuthController {
       refreshToken,
       user: {
         name: user.name,
-        email: user.email,
-        status: user.status
+        email: user.email
       }
     });
   }

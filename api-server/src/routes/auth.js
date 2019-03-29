@@ -12,7 +12,7 @@ router.post(
   AuthController.refreshTokens
 );
 router.post("/auth/logout", AuthValidator.checkAuth, AuthController.logout);
-router.post("/auth/restore", AuthController.restore);
+router.get("/auth/restore", AuthController.restore);
 router.post("/auth/confirmation", AuthController.confirmation);
 
 export default router;

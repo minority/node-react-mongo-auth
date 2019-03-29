@@ -4,6 +4,7 @@ import ClientError from "../exeptions/ClientError";
 import TryCatchErrorDecorator from "../decorators/TryCatchErrorDecorator";
 import TokenService from "../services/TokenService";
 import AppError from "../exeptions/AppError";
+import MailService from "../services/MailService";
 
 class AuthController {
   @TryCatchErrorDecorator
@@ -48,18 +49,27 @@ class AuthController {
 
     const password = AuthService.generatePassword(12);
 
-    console.log("Password ", password);
-
     const user = new UserModel({
       name: req.body.name,
       email: req.body.email,
-      status: "inactive",
       password: await AuthService.hashPassword(password)
     });
 
-    /* send email activate */
-
     await user.save();
+
+    MailService.sendWithTemplate(
+      {
+        to: user.email,
+        subject: "Thanks for registering, your password is inside"
+      },
+      {
+        template: "singup",
+        data: {
+          email: user.email,
+          password
+        }
+      }
+    );
 
     res.json({ status: "success" });
   }

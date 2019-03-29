@@ -27,11 +27,6 @@ const UserSchema = new Schema(
       unique: true,
       trim: true
     },
-    status: {
-      type: String,
-      enum: ["active", "inactive", "banned"],
-      default: "inactive"
-    },
     refreshTokens: [refreshTokens]
   },
   {

@@ -42,7 +42,7 @@ const parseTemplate = async (template, data, options = {}) => {
       );
     }
 
-    return await ejs.renderFile(file, data, {}, (err, result) => {
+    return await ejs.renderFile(file, data, options, (err, result) => {
       if (err) {
         throw new AppError(err.message);
       }

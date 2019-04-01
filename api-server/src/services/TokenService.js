@@ -52,6 +52,26 @@ const createRefreshToken = async user => {
   }
 };
 
+const createRestorePasswordToken = async user => {
+  try {
+    const payload = {
+      id: user._id
+    };
+
+    const options = {
+      algorithm: "HS512",
+      subject: user._id.toString(),
+      expiresIn: config.expireRestore
+    };
+
+    const token = await sign(payload, config.secretRestore, options);
+
+    return token;
+  } catch (err) {
+    throw new AppError(err.message);
+  }
+};
+
 const removeRefreshTokenUser = async (user, token) => {
   try {
     const refreshTokenId = token.split("::")[0];
@@ -109,6 +129,16 @@ const verifyAccessToken = async token => {
   }
 };
 
+const verifyRestorePasswordToken = async token => {
+  try {
+    const data = await jwt.verify(token, config.secretRestore);
+
+    return data;
+  } catch (err) {
+    return false;
+  }
+};
+
 const checkRefreshTokenUser = async (user, token) => {
   try {
     const refreshTokenId = token.split("::")[0];
@@ -131,5 +161,7 @@ export default {
   removeRefreshTokenUser,
   verifyRefreshToken,
   checkRefreshTokenUser,
-  verifyAccessToken
+  verifyAccessToken,
+  createRestorePasswordToken,
+  verifyRestorePasswordToken
 };

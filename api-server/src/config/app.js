@@ -14,7 +14,8 @@ const isProd = !isDev;
 export default {
   host: process.env.HOST,
   port: process.env.PORT,
+  frontendHost: process.env.FRONTEND_HOST,
   mongoUri: process.env.MONGO_URI,
   isDev,
-  isProd,
+  isProd
 };

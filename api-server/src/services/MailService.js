@@ -32,7 +32,7 @@ const saveEmailInFile = async data => {
   }
 };
 
-const parseTemplate = async (template, data, options = {}) => {
+const compileTemplate = async (template, data, options = {}) => {
   try {
     const file = path.join(srcPath(`templates/mail/${template}.ejs`));
 
@@ -84,10 +84,10 @@ const sendWithTemplate = async (data, templateOptions) => {
     const options = templateOptions.options || {};
 
     if (!template) {
-      throw new AppError(`Could not find template name in params`);
+      throw new AppError(`Could not find template name in options`);
     }
 
-    data.html = await parseTemplate(template, dataTemplate, options);
+    data.html = await compileTemplate(template, dataTemplate, options);
 
     return await send(data);
   } catch (err) {

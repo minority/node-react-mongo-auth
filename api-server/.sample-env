@@ -1,16 +1,20 @@
 # host options
 PORT=3003
-HOST=http://localhost
+HOST='http://localhost'
+FRONTEND_HOST='http://localhost:3000'
 
-# mongo connect uri
-MONGO_URI=mongodb://localhost/test
+# mongo uri
+MONGO_URI='mongodb://localhost/test'
 
 # secrets for api token
-SECRET_TOKEN_ACCESS=secret
-EXPIRE_TOKEN_ACCESS=1d
+SECRET_TOKEN_ACCESS='secret'
+EXPIRE_TOKEN_ACCESS='1d'
 
-SECRET_TOKEN_REFRESH=secret
-EXPIRE_TOKEN_REFRESH=30d
+SECRET_TOKEN_REFRESH='secret'
+EXPIRE_TOKEN_REFRESH='30d'
+
+SECRET_TOKEN_RESTORE_PASSWORD='secret'
+EXPIRE_TOKEN_RESTORE_PASSWORD='20min'
 
 TOKEN_LIMIT_COUNT_DIVICE=5
 

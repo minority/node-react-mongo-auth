@@ -84,6 +84,46 @@ class AuthValidator {
   }
 
   @TryCatchErrorDecorator
+  async restorePassword(req, res, next) {
+    const schema = {
+      type: "object",
+      required: ["email"],
+      properties: {
+        email: {
+          type: "string",
+          format: "email",
+          errorMessage: {
+            format: "Field 'email' incorrect",
+            type: "Field 'email' should be a string"
+          }
+        }
+      }
+    };
+
+    await ValidateService.validate(req.body, schema);
+    next();
+  }
+
+  @TryCatchErrorDecorator
+  async confirmRestorePassword(req, res, next) {
+    const schema = {
+      type: "object",
+      required: ["token"],
+      properties: {
+        token: {
+          type: "string",
+          errorMessage: {
+            type: "Field 'name' should be a string"
+          }
+        }
+      }
+    };
+
+    await ValidateService.validate(req.body, schema);
+    next();
+  }
+
+  @TryCatchErrorDecorator
   async checkAuth(req, res, next) {
     if (req.headers.authorization) {
       const token = req.headers.authorization.split(" ")[1];

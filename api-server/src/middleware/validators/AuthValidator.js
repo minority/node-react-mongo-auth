@@ -5,7 +5,7 @@ import TokenService from "../../services/TokenService";
 
 class AuthValidator {
   @TryCatchErrorDecorator
-  async signin(req, res, next) {
+  static async signin(req, res, next) {
     const schema = {
       type: "object",
       required: ["email", "password"],
@@ -32,7 +32,7 @@ class AuthValidator {
   }
 
   @TryCatchErrorDecorator
-  async signup(req, res, next) {
+  static async signup(req, res, next) {
     const schema = {
       type: "object",
       required: ["email", "name"],
@@ -63,7 +63,7 @@ class AuthValidator {
   }
 
   @TryCatchErrorDecorator
-  async refreshTokens(req, res, next) {
+  static async refreshTokens(req, res, next) {
     const schema = {
       type: "object",
       required: ["refreshToken"],
@@ -84,7 +84,7 @@ class AuthValidator {
   }
 
   @TryCatchErrorDecorator
-  async restorePassword(req, res, next) {
+  static async restorePassword(req, res, next) {
     const schema = {
       type: "object",
       required: ["email"],
@@ -105,7 +105,7 @@ class AuthValidator {
   }
 
   @TryCatchErrorDecorator
-  async confirmRestorePassword(req, res, next) {
+  static async confirmRestorePassword(req, res, next) {
     const schema = {
       type: "object",
       required: ["token"],
@@ -124,7 +124,7 @@ class AuthValidator {
   }
 
   @TryCatchErrorDecorator
-  async checkAuth(req, res, next) {
+  static async checkAuth(req, res, next) {
     if (req.headers.authorization) {
       const token = req.headers.authorization.split(" ")[1];
 
@@ -146,4 +146,4 @@ class AuthValidator {
   }
 }
 
-export default new AuthValidator();
+export default AuthValidator;

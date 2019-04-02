@@ -10,7 +10,7 @@ import config from "../config/app";
 
 class AuthController {
   @TryCatchErrorDecorator
-  async signin(req, res) {
+  static async signin(req, res) {
     const user = await UserModel.findOne({ email: req.body.email });
     if (!user) {
       throw new ClientError("User not found", 404);
@@ -43,7 +43,7 @@ class AuthController {
   }
 
   @TryCatchErrorDecorator
-  async signup(req, res) {
+  static async signup(req, res) {
     const isAlreadyUser = await UserModel.findOne({ email: req.body.email });
     if (isAlreadyUser) {
       throw new ClientError("This email is already registered", 409);
@@ -77,7 +77,7 @@ class AuthController {
   }
 
   @TryCatchErrorDecorator
-  async refreshTokens(req, res) {
+  static async refreshTokens(req, res) {
     const refreshTokenRequest = req.body.refreshToken;
 
     const verifyData = await TokenService.verifyRefreshToken(
@@ -112,7 +112,7 @@ class AuthController {
   }
 
   @TryCatchErrorDecorator
-  async logout(req, res, next) {
+  static async logout(req, res, next) {
     const user = await UserModel.findOne({ _id: req.userId });
     if (!user) {
       throw new AppError("UserId not found in request", 401);
@@ -125,7 +125,7 @@ class AuthController {
   }
 
   @TryCatchErrorDecorator
-  async restorePassword(req, res, next) {
+  static async restorePassword(req, res, next) {
     const user = await UserModel.findOne({ email: req.body.email });
 
     if (!user) {
@@ -152,7 +152,7 @@ class AuthController {
   }
 
   @TryCatchErrorDecorator
-  async confirmRestorePassword(req, res, next) {
+  static async confirmRestorePassword(req, res, next) {
     const tokenRequest = req.body.token;
 
     const verifyData = await TokenService.verifyRestorePasswordToken(
@@ -186,4 +186,4 @@ class AuthController {
   }
 }
 
-export default new AuthController();
+export default AuthController;

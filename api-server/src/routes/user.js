@@ -1,10 +1,10 @@
 import { Router } from "express";
 import UserController from "../controllers/UserController";
-import AuthValidator from "../middleware/validators/AuthValidator";
+import Authorize from "../middleware/Authorize";
 
 const router = Router();
 
-router.get("/user", AuthValidator.checkAuth, UserController.index);
-router.get("/user/clear", AuthValidator.checkAuth, UserController.clear);
+router.get("/user", Authorize.check, UserController.index);
+router.get("/user/clear", Authorize.check, UserController.clear);
 
 export default router;

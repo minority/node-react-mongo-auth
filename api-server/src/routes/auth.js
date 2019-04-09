@@ -1,25 +1,35 @@
 import { Router } from "express";
 import AuthController from "../controllers/AuthController";
-import AuthValidator from "../middleware/validators/AuthValidator";
+import Validate from "../middleware/Validate";
+import Authorize from "../middleware/Authorize";
+import authSchemas from "../schemas/auth";
 
 const router = Router();
 
-router.post("/auth/signin", AuthValidator.signin, AuthController.signin);
-router.post("/auth/signup", AuthValidator.signup, AuthController.signup);
+router.post(
+  "/auth/signin",
+  Validate.prepare(authSchemas.signin),
+  AuthController.signin
+);
+router.post(
+  "/auth/signup",
+  Validate.prepare(authSchemas.signup),
+  AuthController.signup
+);
 router.post(
   "/auth/refresh-tokens",
-  AuthValidator.refreshTokens,
+  Validate.prepare(authSchemas.refreshTokens),
   AuthController.refreshTokens
 );
-router.post("/auth/logout", AuthValidator.checkAuth, AuthController.logout);
+router.post("/auth/logout", Authorize.check, AuthController.logout);
 router.post(
   "/auth/restore-password",
-  AuthValidator.restorePassword,
+  Validate.prepare(authSchemas.restorePassword),
   AuthController.restorePassword
 );
 router.post(
   "/auth/confirm-restore-password",
-  AuthValidator.confirmRestorePassword,
+  Validate.prepare(authSchemas.confirmRestorePassword),
   AuthController.confirmRestorePassword
 );
 

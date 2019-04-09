@@ -4,11 +4,11 @@ Configuration file app `.sample-env` rename to `.env`.
 
 Runs the app in the development mode.
 
-### `npm run dev`
+`npm run dev`
 
 Runs the app in the production mode.
 
-### `npm run start`
+`npm run start`
 
 
 ## Method API
@@ -87,6 +87,27 @@ Handle error to `/api-server/src/middleware/ErrorHandler.js`
 
 For validate data use AJV (https://github.com/epoberezkin/ajv)
 
-Rules validation middleware is here `/api-server/src/middleware/validators`
+Schemas validation to `/api-server/src/schemas`
 
-### The project will change over time, if you have advice on how to do better write to me `minorforyounot[replace]gmail.com`
+Example validation route `router.post("/auth/signin", Validate.prepare(authSchemas.signin)`
+
+Example validation error (http code 422): 
+
+```js
+{
+    "code": 422,
+    "message": "Unprocessable Entity",
+    "errorValidation": {
+        "fields": {
+            "email": [
+                "Should have required property 'email'"
+            ],
+            "password": [
+                "Should have required property 'password'"
+            ]
+        }
+    }
+}
+```
+
+The project will change over time, if you have advice on how to do better write to me `minorforyounot[replace]gmail.com`

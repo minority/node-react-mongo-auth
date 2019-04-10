@@ -1,0 +1,24 @@
+version: '2.1'
+
+services:
+  backend:
+    build: .
+    ports:
+      - 3003:3003
+    volumes:
+      - ./:/usr/src/app
+    command: npm run dev
+    links:
+      - mongo
+  mongo:
+    image: mongo
+    ports: 
+      - 27018:27017
+  adminmongo:
+    image: mrvautin/adminmongo
+    environment:
+      - HOST=0.0.0.0
+    ports:
+      - 1234:1234
+    links:
+      - mongo

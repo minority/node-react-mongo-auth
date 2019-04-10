@@ -10,6 +10,15 @@ Runs the app in the production mode.
 
 `npm run start`
 
+Runs the app from Docker
+
+`sudo docker-compose up`
+
+Host app `http://localhost:3003`
+
+AdminMongo `http://0.0.0.0:1234` (uri docker containers `mongodb://mongo`)
+
+Mongo (local) `mongodb://localhost:27018`
 
 ## Method API
 

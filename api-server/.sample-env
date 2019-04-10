@@ -4,7 +4,7 @@ HOST='http://localhost'
 FRONTEND_HOST='http://localhost:3000'
 
 # mongo uri
-MONGO_URI='mongodb://localhost/test'
+MONGO_URI='mongodb://mongo/test'
 
 # secrets for api token
 SECRET_TOKEN_ACCESS='secret'

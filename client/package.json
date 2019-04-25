@@ -6,6 +6,7 @@
     "start": "APP_ENV=development react-scripts start",
     "build": "APP_ENV=production react-scripts build",
     "test": "APP_ENV=development react-scripts test",
+    "eject": "react-scripts eject",
     "precommit": "lint-staged"
   },
   "eslintConfig": {

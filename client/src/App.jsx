@@ -5,7 +5,7 @@ import routes from "./routes"
 const App = () => {
     return <BrowserRouter>
         <Switch>
-            {routes.map(item => (<Route path={item.path} component={item.component} exact />))}
+            {routes.map((item, i) => (<Route path={item.path} component={item.component} key={i} exact />))}
         </Switch>
     </BrowserRouter>;
 }

@@ -26,17 +26,18 @@
     ]
   },
   "dependencies": {
+    "antd": "^3.16.6",
     "axios": "^0.18.0",
-    "node-sass": "^4.11.0",
+    "node-sass": "^4.12.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-redux": "^7.0.2",
+    "react-redux": "^7.0.3",
     "react-router-dom": "^5.0.0",
     "react-scripts": "^3.0.0",
     "redux": "^4.0.1"
   },
   "devDependencies": {
-    "eslint-config-prettier": "^4.1.0",
+    "eslint-config-prettier": "^4.2.0",
     "eslint-plugin-prettier": "^3.0.1",
     "husky": "^2.1.0",
     "lint-staged": "^8.1.5",

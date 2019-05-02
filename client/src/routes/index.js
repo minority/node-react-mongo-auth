@@ -1,13 +1,33 @@
 import Main from "../containers/Main";
 import NotFound from "../containers/NotFound";
+import Signin from "../containers/Auth/Signin";
+import Signup from "../containers/Auth/Signup";
+import RestorePassword from "../containers/Auth/RestorePassword";
 
 const routes = [
   {
     path: "/",
-    component: Main
+    component: Signin,
+    isAuth: false
   },
   {
-    component: NotFound
+    path: "/signup",
+    component: Signup,
+    isAuth: false
+  },
+  {
+    path: "/restore-password",
+    component: RestorePassword,
+    isAuth: false
+  },
+  {
+    path: "/main",
+    component: Main,
+    isAuth: true
+  },
+  {
+    component: NotFound,
+    isAuth: false
   }
 ];
 

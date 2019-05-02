@@ -1,8 +1,9 @@
 import React from 'react';
+import style from "./index.module.scss";
 
 const Clear = ({children}) => {
   return (
-    <div className="clear-layout">
+    <div className={style.clearLayout}>
       {children}
     </div>
   )

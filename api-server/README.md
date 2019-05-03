@@ -16,7 +16,7 @@ Runs the app from Docker
 
 Host app `http://localhost:3003`
 
-AdminMongo `http://0.0.0.0:1234` (uri docker containers `mongodb://mongo`)
+AdminMongo `http://0.0.0.0:1234` (Mongo uri in docker containers `mongodb://mongo`)
 
 Mongo (local) `mongodb://localhost:27018`
 
@@ -44,6 +44,8 @@ email:test@mail.ru
 name:test
 `
 
+Password auto generate, find in local email to `/api-server/logs/mail`
+
 ### Refresh token
 
 `POST: api/auth/refresh-tokens`
@@ -64,7 +66,7 @@ Params
 email:test@mail.ru
 `
 
-### Restore password
+### Confirm restore password
 
 `POST: api/auth/confirm-restore-password`
 
@@ -74,7 +76,9 @@ Params
 token:token
 `
 
-### Logout (with Authorization Bearer Token)
+Token find in local email to `/api-server/logs/mail`
+
+### Logout (with Authorization: Bearer token)
 
 `POST: api/auth/logout`
 

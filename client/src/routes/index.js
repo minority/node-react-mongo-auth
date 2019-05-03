@@ -23,7 +23,7 @@ const routes = [
   {
     path: "/main",
     component: Main,
-    isAuth: true
+    isAuth: false
   },
   {
     component: NotFound,

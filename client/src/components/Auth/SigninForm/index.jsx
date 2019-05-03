@@ -39,7 +39,7 @@ const SigninForm = (props) => {
         <Form.Item>
           <Button type="primary" style={{ width: '100%' }} htmlType="submit">Sign in</Button>
           <div className={style.singupLinks}>
-          <Link to="/signup">Create accaunt</Link> or <Link to="/restore-password">Forgot password</Link>
+            <Link to="/signup">Create accaunt</Link> or <Link to="/restore-password">Forgot password</Link>
           </div>
         </Form.Item>
     </Form>

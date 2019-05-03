@@ -17,7 +17,7 @@ const RestorePasswordForm = (props) => {
   }
 
   return (
-    <Form onSubmit={handleSubmit} className={style.signinForm}>
+    <Form onSubmit={handleSubmit} className={style.restorePassword}>
         <h1 className={style.authHeader}>Restore password</h1>
         <Form.Item>
           {getFieldDecorator('email', {
@@ -32,7 +32,7 @@ const RestorePasswordForm = (props) => {
         <Form.Item>
           <Button type="primary" style={{ width: '100%' }} htmlType="submit">Restore</Button>
           <div className={style.singupLinks}>
-          <Link to="/">Sign in</Link> or <Link to="/signup">Create accaunt</Link>
+            <Link to="/">Sign in</Link> or <Link to="/signup">Create accaunt</Link>
           </div>
         </Form.Item>
     </Form>

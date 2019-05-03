@@ -4,9 +4,11 @@
     "prettier"
   ],
   "rules": {
-    "jsx-quotes": [
+    "react/jsx-filename-extension": [
       1,
-      "prefer-double"
+      {
+        "extensions": [".js", ".jsx"]
+      }
     ]
   },
   "plugins": [

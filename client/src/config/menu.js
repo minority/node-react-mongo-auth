@@ -1,12 +1,12 @@
 const menu = [
   {
     label: "Home",
-    path: "/main",
+    path: "/home",
     icon: "appstore-o"
   },
   {
-    label: "User",
-    path: "/user",
+    label: "Users",
+    path: "/users",
     icon: "user"
   }
 ];

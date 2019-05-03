@@ -1,8 +1,9 @@
-import Main from "../containers/Main";
+import Home from "../containers/Home";
 import NotFound from "../containers/NotFound";
 import Signin from "../containers/Auth/Signin";
 import Signup from "../containers/Auth/Signup";
 import RestorePassword from "../containers/Auth/RestorePassword";
+import Users from "../containers/Users";
 
 const routes = [
   {
@@ -21,8 +22,13 @@ const routes = [
     isAuth: false
   },
   {
-    path: "/main",
-    component: Main,
+    path: "/home",
+    component: Home,
+    isAuth: false
+  },
+  {
+    path: "/users",
+    component: Users,
     isAuth: false
   },
   {

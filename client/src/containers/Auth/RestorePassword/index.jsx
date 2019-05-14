@@ -1,6 +1,6 @@
 import React from "react";
 import { Row, Col } from "antd";
-import RestorePasswordForm from "../../../components/Auth/RestorePasswordForm";
+import RestorePasswordForm from "../../../components/RestorePasswordForm";
 import style from "./index.module.scss";
 
 const RestorePassword = () => {

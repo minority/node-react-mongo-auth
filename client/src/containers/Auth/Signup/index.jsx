@@ -1,6 +1,6 @@
 import React from "react";
 import { Row, Col } from "antd";
-import SignupForm from "../../../components/Auth/SignupForm";
+import SignupForm from "../../../components/SignupForm";
 import style from "./index.module.scss";
 
 const Signup = () => {

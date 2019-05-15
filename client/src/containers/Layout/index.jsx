@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import Clear from "./clear";
 import Cabinet from "./cabinet";
+import { connect } from "react-redux";
 
 const Layout = props => {
   return props.isAuth ? (
@@ -12,7 +13,11 @@ const Layout = props => {
 };
 
 Layout.propTypes = {
-  isAuth: PropTypes.bool
+  isAuth: PropTypes.bool.isRequired
 };
 
-export default Layout;
+const mapStateToProps = state => ({
+  isAuth: state.signin.isAuth
+});
+
+export default connect(mapStateToProps)(Layout);

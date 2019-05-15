@@ -13,7 +13,6 @@ const App = () => {
             item.isAuth ? (
               <PrivateRoute
                 path={item.path}
-                isAuth={false}
                 component={item.component}
                 key={i}
                 exact

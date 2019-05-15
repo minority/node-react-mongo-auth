@@ -36,6 +36,7 @@ class AuthController {
       accessToken,
       refreshToken,
       user: {
+        id: user.id,
         name: user.name,
         email: user.email
       }

@@ -24,12 +24,12 @@ const routes = [
   {
     path: "/home",
     component: Home,
-    isAuth: false
+    isAuth: true
   },
   {
     path: "/users",
     component: Users,
-    isAuth: false
+    isAuth: true
   },
   {
     component: NotFound,

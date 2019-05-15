@@ -1,5 +1,5 @@
-import signinReducer from "./signin/reducer";
-import signupReducer from "./signup/reducer";
-import restoreReducer from "./restore/reducer";
+import signin from "./signin/reducer";
+import signup from "./signup/reducer";
+import restore from "./restore/reducer";
 
-export default [signinReducer, signupReducer, restoreReducer];
+export default { signin, signup, restore };

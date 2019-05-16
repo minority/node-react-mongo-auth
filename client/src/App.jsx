@@ -1,13 +1,13 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import routes from "./routes";
-import PrivateRoute from "./containers/Auth/PrivateRoute";
-import Layout from "./containers/Layout";
+import PrivateRoute from "./feature/PrivateRoute";
+import Layout from "./feature/Layout";
 
 const App = () => {
   return (
     <BrowserRouter>
-      <Layout isAuth={false}>
+      <Layout>
         <Switch>
           {routes.map((item, i) =>
             item.isAuth ? (

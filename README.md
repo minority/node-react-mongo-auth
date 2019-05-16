@@ -19,6 +19,7 @@
 
 ### Client side (in progress)
 
+- Simple structure project
 - Create react app
 - Design library Ant.Design
 - Redux for state menagment 

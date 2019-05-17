@@ -24,7 +24,6 @@ const signinReducer = (state = initialState, action) => {
     case SIGNIN_REQUEST_PROCESS:
       return { ...state, isLoading: true };
     case SIGNIN_REQUEST_ERROR:
-      console.log(action.message);
       return {
         ...state,
         isLoading: false,

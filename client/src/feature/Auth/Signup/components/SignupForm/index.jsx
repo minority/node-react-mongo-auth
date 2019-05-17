@@ -11,7 +11,7 @@ const SignupForm = props => {
 
     props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
-        console.log("Received values of form: ", values);
+        props.onSubmit(values);
       }
     });
   };
@@ -33,7 +33,12 @@ const SignupForm = props => {
           />
         )}
       </Form.Item>
-      <Form.Item>
+      <Form.Item
+        {...props.isError && {
+          help: props.errorMessage,
+          validateStatus: "error"
+        }}
+      >
         {getFieldDecorator("email", {
           rules: [
             { required: true, message: "Please input your email!" },
@@ -47,7 +52,12 @@ const SignupForm = props => {
         )}
       </Form.Item>
       <Form.Item>
-        <Button type="primary" style={{ width: "100%" }} htmlType="submit">
+        <Button
+          loading={props.isLoading}
+          type="primary"
+          style={{ width: "100%" }}
+          htmlType="submit"
+        >
           Sing up
         </Button>
         <div className={style.singupLinks}>

@@ -1,16 +1,21 @@
 import React, { useEffect } from "react";
 import PropTypes from "prop-types";
-import { Row, Col } from "antd";
-import RestorePasswordForm from "./components/RestorePasswordForm";
+import { Row, Col, Spin } from "antd";
 import { connect } from "react-redux";
-import { restorePasswordRequest } from "./actions";
 import { withRouter, Link } from "react-router-dom";
+import { confirmRestorePasswordRequest } from "./actions";
 import style from "./index.module.scss";
 
-const RestorePassword = props => {
+const ConfirmRestorePassword = props => {
   useEffect(() => {
     props.isAuth && props.history.push("/home");
   });
+
+  useEffect(() => {
+    const token = props.match.params.token;
+    token && props.confirmRestorePasswordRequest(token);
+    // eslint-disable-next-line
+  }, []);
 
   return (
     <Row>
@@ -21,22 +26,22 @@ const RestorePassword = props => {
         lg={{ span: 8, offset: 8 }}
         xl={{ span: 6, offset: 9 }}
       >
-        <div className={style.restorePasswordWrapper}>
-          {props.isSuccess ? (
-            <div className={style.authHeader}>
+        <div className={style.confirmRestorePasswordWrapper}>
+          {props.isLoading ? (
+            <Spin size="large" />
+          ) : props.isSuccess ? (
+            <div>
               <h1>Success</h1>
-              <p>Link for restore password is sent to your email address.</p>
+              <p>Password has changed.</p>
               <p>
                 Go to <Link to="/">Sign in</Link>
               </p>
             </div>
           ) : (
-            <RestorePasswordForm
-              onSubmit={props.restorePasswordRequest}
-              isLoading={props.isLoading}
-              isError={props.isError}
-              errorMessage={props.errorMessage}
-            />
+            <div>
+              <h1>Error</h1>
+              <p>{props.errorMessage}</p>
+            </div>
           )}
         </div>
       </Col>
@@ -44,26 +49,26 @@ const RestorePassword = props => {
   );
 };
 
-RestorePassword.propTypes = {
+ConfirmRestorePassword.propTypes = {
   isLoading: PropTypes.bool.isRequired,
   isAuth: PropTypes.bool.isRequired,
   isSuccess: PropTypes.bool.isRequired,
   isError: PropTypes.bool.isRequired,
   errorMessage: PropTypes.string.isRequired,
-  restorePasswordRequest: PropTypes.func.isRequired
+  confirmRestorePasswordRequest: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
-  isLoading: state.restorePassword.isLoading,
+  isLoading: state.confirmRestorePassword.isLoading,
   isAuth: state.signin.isAuth,
-  isError: state.restorePassword.isError,
-  isSuccess: state.restorePassword.isSuccess,
-  errorMessage: state.restorePassword.errorMessage
+  isError: state.confirmRestorePassword.isError,
+  isSuccess: state.confirmRestorePassword.isSuccess,
+  errorMessage: state.confirmRestorePassword.errorMessage
 });
 
 export default withRouter(
   connect(
     mapStateToProps,
-    { restorePasswordRequest }
-  )(RestorePassword)
+    { confirmRestorePasswordRequest }
+  )(ConfirmRestorePassword)
 );

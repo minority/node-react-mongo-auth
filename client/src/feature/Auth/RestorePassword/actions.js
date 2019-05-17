@@ -16,7 +16,7 @@ export const restoreRequestError = error => ({
   error
 });
 
-export const restoreRequest = formData => async dispatch => {
+export const restorePasswordRequest = formData => async dispatch => {
   try {
     dispatch(restoreRequestProcess());
 

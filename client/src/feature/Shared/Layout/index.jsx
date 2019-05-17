@@ -7,7 +7,7 @@ import { connect } from "react-redux";
 
 const Layout = props => {
   return props.isAuth ? (
-    <Cabinet props={menuList}>{props.children}</Cabinet>
+    <Cabinet menuList={menuList}>{props.children}</Cabinet>
   ) : (
     <Clear>{props.children}</Clear>
   );

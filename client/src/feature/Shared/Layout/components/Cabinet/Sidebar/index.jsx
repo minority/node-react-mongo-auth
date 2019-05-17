@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 
 const { Sider } = Layout;
 
-const Sidebar = ({ menuList }) => {
+const Sidebar = props => {
   return (
     <Sider width={200} style={{ background: "#fff" }}>
       <Menu
@@ -13,7 +13,7 @@ const Sidebar = ({ menuList }) => {
         defaultSelectedKeys={["0"]}
         style={{ height: "100%", borderRight: 0 }}
       >
-        {menuList.map((item, i) => {
+        {props.menuList.map((item, i) => {
           return (
             <Menu.Item key={i}>
               <Link to={item.path}>

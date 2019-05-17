@@ -1,9 +1,9 @@
 import React from "react";
 import { Row, Col } from "antd";
-import SignupForm from "../../components/SignupForm";
+import RestorePasswordForm from "./components/RestorePasswordForm";
 import style from "./index.module.scss";
 
-const Signup = () => {
+const RestorePassword = () => {
   return (
     <Row>
       <Col
@@ -13,12 +13,12 @@ const Signup = () => {
         lg={{ span: 8, offset: 8 }}
         xl={{ span: 6, offset: 9 }}
       >
-        <div className={style.signupFormWrapper}>
-          <SignupForm />
+        <div className={style.restorePasswordWrapper}>
+          <RestorePasswordForm />
         </div>
       </Col>
     </Row>
   );
 };
 
-export default Signup;
+export default RestorePassword;

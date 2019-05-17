@@ -1,6 +1,6 @@
-import Signin from "../containers/Signin";
-import Signup from "../containers/Signup";
-import RestorePassword from "../containers/RestorePassword";
+import Signin from "./Signin";
+import Signup from "./Signup";
+import RestorePassword from "./RestorePassword";
 
 const routes = [
   {

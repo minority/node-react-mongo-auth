@@ -1,9 +1,8 @@
-import { createStore, combineReducers, applyMiddleware, compose } from "redux";
+import { createStore, applyMiddleware, compose } from "redux";
 import logger from "redux-logger";
 import thunk from "redux-thunk";
 import config from "./config";
-
-import { authReducers } from "./feature/Auth";
+import { reducers } from "./reducers";
 
 const composeEnhancers =
   typeof window === "object" && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
@@ -12,9 +11,7 @@ const composeEnhancers =
       })
     : compose;
 
-const reducers = combineReducers({ ...authReducers });
 const middlewares = applyMiddleware(thunk, config.LOGGER_ENABLE && logger);
-
 const store = createStore(reducers, composeEnhancers(middlewares));
 
 export default store;

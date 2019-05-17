@@ -1,18 +1,18 @@
 import React from "react";
 import { Layout } from "antd";
-import menuList from "../../../../config/menu";
 import Sidebar from "./Sidebar";
 import Header from "./Header";
 import Footer from "./Footer";
+import PropTypes from "prop-types";
 
 const { Content } = Layout;
 
-const Cabinet = ({ children }) => {
+const Cabinet = props => {
   return (
     <Layout style={{ minHeight: "100vh" }}>
       <Header />
       <Layout>
-        <Sidebar menuList={menuList} />
+        <Sidebar menuList={props.menuList} />
         <Layout style={{ padding: "0 24px 24px" }}>
           <Content
             style={{
@@ -22,13 +22,17 @@ const Cabinet = ({ children }) => {
               minHeight: 300
             }}
           >
-            {children}
+            {props.children}
           </Content>
           <Footer />
         </Layout>
       </Layout>
     </Layout>
   );
+};
+
+Cabinet.propTypes = {
+  menuList: PropTypes.array
 };
 
 export default Cabinet;

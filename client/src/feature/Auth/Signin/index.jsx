@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { Row, Col } from "antd";
-import SigninForm from "../../components/SigninForm";
+import SigninForm from "./components/SigninForm";
 import style from "./index.module.scss";
 import { connect } from "react-redux";
-import { signinRequest } from "../../store/signin/actions";
+import { signinRequest } from "./actions";
 import { withRouter } from "react-router-dom";
 
 const Signin = props => {

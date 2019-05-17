@@ -1,4 +1,4 @@
-import api from "../../../../lib/api";
+import api from "../../../lib/api";
 
 export const SIGNIN_REQUEST_PROCESS = "SIGNIN_REQUEST_PROCESS";
 export const SIGNIN_REQUEST_ERROR = "SIGNIN_REQUEST_ERROR";
@@ -27,6 +27,7 @@ export const signinRequest = formData => async dispatch => {
 
     dispatch(signinSuccess(data));
   } catch (error) {
-    dispatch(signinRequestError(error.response.data));
+    const errorObject = error.response ? error.response.data : error;
+    dispatch(signinRequestError(errorObject));
   }
 };

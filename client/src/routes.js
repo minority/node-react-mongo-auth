@@ -1,8 +1,7 @@
 import { authRoutes } from "./feature/Auth";
 import notFoundRoute from "./feature/NotFound/route";
-import userRoute from "./feature/Users/route";
-import homeRoute from "./feature/Home/route";
+import { cabinetRoutes } from "./feature/Cabinet";
 
-const routes = [...authRoutes, userRoute, homeRoute, notFoundRoute];
+const routes = [...authRoutes, ...cabinetRoutes, notFoundRoute];
 
 export default routes;

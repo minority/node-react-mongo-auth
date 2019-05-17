@@ -11,7 +11,7 @@ const RestorePasswordForm = props => {
 
     props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
-        console.log("Received values of form: ", values);
+        props.onSubmit(values);
       }
     });
   };
@@ -19,7 +19,12 @@ const RestorePasswordForm = props => {
   return (
     <Form onSubmit={handleSubmit} className={style.restorePassword}>
       <h1 className={style.authHeader}>Restore password</h1>
-      <Form.Item>
+      <Form.Item
+        {...props.isError && {
+          help: props.errorMessage,
+          validateStatus: "error"
+        }}
+      >
         {getFieldDecorator("email", {
           rules: [
             { required: true, message: "Please input your email!" },
@@ -33,7 +38,12 @@ const RestorePasswordForm = props => {
         )}
       </Form.Item>
       <Form.Item>
-        <Button type="primary" style={{ width: "100%" }} htmlType="submit">
+        <Button
+          loading={props.isLoading}
+          type="primary"
+          style={{ width: "100%" }}
+          htmlType="submit"
+        >
           Restore
         </Button>
         <div className={style.singupLinks}>

@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
+import PropTypes from "prop-types";
 import { Row, Col } from "antd";
 import RestorePasswordForm from "./components/RestorePasswordForm";
+import { connect } from "react-redux";
+import { restoreRequest } from "./actions";
+import { withRouter, Link } from "react-router-dom";
 import style from "./index.module.scss";
 
-const RestorePassword = () => {
+const RestorePassword = props => {
+  useEffect(() => {
+    props.isAuth && props.history.push("/home");
+  });
+
   return (
     <Row>
       <Col
@@ -14,11 +22,48 @@ const RestorePassword = () => {
         xl={{ span: 6, offset: 9 }}
       >
         <div className={style.restorePasswordWrapper}>
-          <RestorePasswordForm />
+          {props.isSuccess ? (
+            <div className={style.authHeader}>
+              <h1>Success</h1>
+              <p>Link for restore password is sent to your email address.</p>
+              <p>
+                Go to <Link to="/">Sign in</Link>
+              </p>
+            </div>
+          ) : (
+            <RestorePasswordForm
+              onSubmit={props.restoreRequest}
+              isLoading={props.isLoading}
+              isError={props.isError}
+              errorMessage={props.errorMessage}
+            />
+          )}
         </div>
       </Col>
     </Row>
   );
 };
 
-export default RestorePassword;
+RestorePassword.propTypes = {
+  isLoading: PropTypes.bool.isRequired,
+  isAuth: PropTypes.bool.isRequired,
+  isSuccess: PropTypes.bool.isRequired,
+  isError: PropTypes.bool.isRequired,
+  errorMessage: PropTypes.string.isRequired,
+  restoreRequest: PropTypes.func.isRequired
+};
+
+const mapStateToProps = state => ({
+  isLoading: state.restore.isLoading,
+  isAuth: state.signin.isAuth,
+  isError: state.restore.isError,
+  isSuccess: state.restore.isSuccess,
+  errorMessage: state.restore.errorMessage
+});
+
+export default withRouter(
+  connect(
+    mapStateToProps,
+    { restoreRequest }
+  )(RestorePassword)
+);

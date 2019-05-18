@@ -7,21 +7,25 @@ export const routes = [
   {
     path: "/",
     component: SigninContainer,
-    isAuth: false
+    isAuth: false,
+    exact: true
   },
   {
     path: "/signup",
     component: SignupContainer,
-    isAuth: false
+    isAuth: false,
+    exact: true
   },
   {
     path: "/restore-password",
     component: RestorePasswordContainer,
-    isAuth: false
+    isAuth: false,
+    exact: true
   },
   {
     path: "/confirm-restore-password/:token",
     component: ConfirmRestorePasswordContainer,
-    isAuth: false
+    isAuth: false,
+    exact: true
   }
 ];

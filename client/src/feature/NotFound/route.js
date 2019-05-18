@@ -2,5 +2,6 @@ import { NotFound } from "./container";
 
 export const route = {
   component: NotFound,
-  isAuth: false
+  isAuth: false,
+  exact: true
 };

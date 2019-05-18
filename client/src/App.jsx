@@ -15,14 +15,14 @@ const App = () => {
                 path={item.path}
                 component={item.component}
                 key={i}
-                exact
+                exact={item.exact}
               />
             ) : (
               <Route
                 path={item.path}
                 component={item.component}
                 key={i}
-                exact
+                exact={item.exact}
               />
             )
           )}

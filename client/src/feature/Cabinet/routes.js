@@ -5,11 +5,13 @@ export const routes = [
   {
     path: "/home",
     component: Home,
-    isAuth: true
+    isAuth: true,
+    exact: true
   },
   {
     path: "/users",
     component: Users,
-    isAuth: true
+    isAuth: true,
+    exact: true
   }
 ];

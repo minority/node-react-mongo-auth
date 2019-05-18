@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import PropTypes from "prop-types";
-import SignupForm from "./components/SignupForm";
+import { SignupForm } from "../components/SignupForm";
 import { connect } from "react-redux";
-import { signupRequest } from "./actions";
+import { signupRequest } from "../actions";
 import { withRouter, Link } from "react-router-dom";
 import style from "./index.module.scss";
 
@@ -43,14 +43,14 @@ Signup.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  isLoading: state.signup.isLoading,
-  isAuth: state.signin.isAuth,
-  isError: state.signup.isError,
-  isSuccess: state.signup.isSuccess,
-  errorMessage: state.signup.errorMessage
+  isLoading: state.auth.signup.isLoading,
+  isAuth: state.auth.signin.isAuth,
+  isError: state.auth.signup.isError,
+  isSuccess: state.auth.signup.isSuccess,
+  errorMessage: state.auth.signup.errorMessage
 });
 
-export default withRouter(
+export const SignupContainer = withRouter(
   connect(
     mapStateToProps,
     { signupRequest }

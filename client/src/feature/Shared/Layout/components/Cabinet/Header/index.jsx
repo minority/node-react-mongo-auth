@@ -6,7 +6,7 @@ import style from "./index.module.scss";
 const { SubMenu } = Menu;
 const { Header: AntHeader } = Layout;
 
-const Header = props => {
+const HeaderComponent = props => {
   return (
     <AntHeader style={{ padding: "0 24px" }}>
       <div className={style.logo} />
@@ -28,4 +28,4 @@ const Header = props => {
   );
 };
 
-export default Header;
+export const Header = HeaderComponent;

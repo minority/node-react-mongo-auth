@@ -1,4 +1,4 @@
-const menu = [
+export const menuList = [
   {
     label: "Home",
     path: "/home",
@@ -10,5 +10,3 @@ const menu = [
     icon: "user"
   }
 ];
-
-export default menu;

@@ -1,29 +1,27 @@
-import Signin from "./Signin";
-import Signup from "./Signup";
-import RestorePassword from "./RestorePassword";
-import ConfirmRestorePassword from "./ConfirmRestorePassword";
+import { SigninContainer } from "./Signin";
+import { SignupContainer } from "./Signup";
+import { RestorePasswordContainer } from "./RestorePassword";
+import { ConfirmRestorePasswordContainer } from "./ConfirmRestorePassword";
 
-const routes = [
+export const routes = [
   {
     path: "/",
-    component: Signin,
+    component: SigninContainer,
     isAuth: false
   },
   {
     path: "/signup",
-    component: Signup,
+    component: SignupContainer,
     isAuth: false
   },
   {
     path: "/restore-password",
-    component: RestorePassword,
+    component: RestorePasswordContainer,
     isAuth: false
   },
   {
     path: "/confirm-restore-password/:token",
-    component: ConfirmRestorePassword,
+    component: ConfirmRestorePasswordContainer,
     isAuth: false
   }
 ];
-
-export default routes;

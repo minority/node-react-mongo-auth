@@ -19,7 +19,7 @@ const initialState = {
   }
 };
 
-const signinReducer = (state = initialState, action) => {
+export const signinReducer = (state = initialState, action) => {
   switch (action.type) {
     case SIGNIN_REQUEST_PROCESS:
       return { ...state, isLoading: true };
@@ -46,5 +46,3 @@ const signinReducer = (state = initialState, action) => {
       return state;
   }
 };
-
-export default signinReducer;

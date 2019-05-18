@@ -1,2 +1,2 @@
-export { default as authReducers } from "./reducers";
-export { default as authRoutes } from "./routes";
+export { reducers as authReducers } from "./reducers";
+export { routes as authRoutes } from "./routes";

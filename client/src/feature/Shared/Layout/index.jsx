@@ -1,24 +1,24 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Clear from "./components/Auth";
-import Cabinet from "./components/Cabinet";
-import menuList from "../../../config/menu";
+import { Auth } from "./components/Auth";
+import { Cabinet } from "./components/Cabinet";
+import { menuList } from "../../../config/menu";
 import { connect } from "react-redux";
 
-const Layout = props => {
+const LayoutContainer = props => {
   return props.isAuth ? (
     <Cabinet menuList={menuList}>{props.children}</Cabinet>
   ) : (
-    <Clear>{props.children}</Clear>
+    <Auth>{props.children}</Auth>
   );
 };
 
-Layout.propTypes = {
+LayoutContainer.propTypes = {
   isAuth: PropTypes.bool.isRequired
 };
 
 const mapStateToProps = state => ({
-  isAuth: state.signin.isAuth
+  isAuth: state.auth.signin.isAuth
 });
 
-export default connect(mapStateToProps)(Layout);
+export const Layout = connect(mapStateToProps)(LayoutContainer);

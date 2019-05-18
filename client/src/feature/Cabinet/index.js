@@ -1,1 +1,1 @@
-export { default as cabinetRoutes } from "./routes";
+export { routes as cabinetRoutes } from "./routes";

@@ -1,8 +1,6 @@
-import NotFound from "./index";
+import { NotFound } from "./container";
 
-const route = {
+export const route = {
   component: NotFound,
   isAuth: false
 };
-
-export default route;

@@ -12,6 +12,5 @@ const composeEnhancers =
     : compose;
 
 const middlewares = applyMiddleware(thunk, config.LOGGER_ENABLE && logger);
-const store = createStore(reducers, composeEnhancers(middlewares));
 
-export default store;
+export const store = createStore(reducers, composeEnhancers(middlewares));

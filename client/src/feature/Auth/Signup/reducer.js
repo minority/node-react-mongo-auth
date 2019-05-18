@@ -11,7 +11,7 @@ const initialState = {
   errorMessage: ""
 };
 
-const signupReducer = (state = initialState, action) => {
+export const signupReducer = (state = initialState, action) => {
   switch (action.type) {
     case SIGNUP_REQUEST_PROCESS:
       return { ...state, isLoading: true };
@@ -33,5 +33,3 @@ const signupReducer = (state = initialState, action) => {
       return state;
   }
 };
-
-export default signupReducer;

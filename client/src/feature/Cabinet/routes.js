@@ -1,7 +1,7 @@
 import Home from "./Home";
 import Users from "./Users";
 
-const routes = [
+export const routes = [
   {
     path: "/home",
     component: Home,
@@ -13,5 +13,3 @@ const routes = [
     isAuth: true
   }
 ];
-
-export default routes;

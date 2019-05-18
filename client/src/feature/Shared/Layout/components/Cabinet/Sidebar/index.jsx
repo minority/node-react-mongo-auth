@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 
 const { Sider } = Layout;
 
-const Sidebar = props => {
+const SidebarComponent = props => {
   return (
     <Sider width={200} style={{ background: "#fff" }}>
       <Menu
@@ -28,8 +28,8 @@ const Sidebar = props => {
   );
 };
 
-Sidebar.propTypes = {
+SidebarComponent.propTypes = {
   menuList: PropTypes.array
 };
 
-export default Sidebar;
+export const Sidebar = SidebarComponent;

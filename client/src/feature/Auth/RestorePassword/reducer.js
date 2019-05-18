@@ -11,7 +11,7 @@ const initialState = {
   errorMessage: ""
 };
 
-const restoreReducer = (state = initialState, action) => {
+export const restorePasswordReducer = (state = initialState, action) => {
   switch (action.type) {
     case RESTORE_REQUEST_PROCESS:
       return { ...state, isLoading: true };
@@ -33,5 +33,3 @@ const restoreReducer = (state = initialState, action) => {
       return state;
   }
 };
-
-export default restoreReducer;

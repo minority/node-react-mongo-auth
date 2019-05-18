@@ -3,7 +3,7 @@ import { Form, Icon, Input, Button } from "antd";
 import style from "./index.module.scss";
 import { Link } from "react-router-dom";
 
-const SignupForm = props => {
+const SignupFormComponent = props => {
   const { getFieldDecorator } = props.form;
 
   const handleSubmit = e => {
@@ -69,6 +69,6 @@ const SignupForm = props => {
   );
 };
 
-const WrappedSignupForm = Form.create({ name: "signinForm" })(SignupForm);
-
-export default WrappedSignupForm;
+export const SignupForm = Form.create({ name: "signinForm" })(
+  SignupFormComponent
+);

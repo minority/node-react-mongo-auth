@@ -1,6 +1,13 @@
-import signin from "./Signin/reducer";
-import signup from "./Signup/reducer";
-import restorePassword from "./RestorePassword/reducer";
-import confirmRestorePassword from "./ConfirmRestorePassword/reducer";
+import { combineReducers } from "redux";
 
-export default { signin, signup, restorePassword, confirmRestorePassword };
+import { signinReducer as signin } from "./Signin";
+import { signupReducer as signup } from "./Signup";
+import { restorePasswordReducer as restorePassword } from "./RestorePassword";
+import { confirmRestorePasswordReducer as confirmRestorePassword } from "./ConfirmRestorePassword";
+
+export const reducers = combineReducers({
+  signin,
+  signup,
+  restorePassword,
+  confirmRestorePassword
+});

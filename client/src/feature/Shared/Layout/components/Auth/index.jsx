@@ -2,7 +2,7 @@ import React from "react";
 import style from "./index.module.scss";
 import { Row, Col } from "antd";
 
-const Auth = ({ children }) => {
+export const Auth = ({ children }) => {
   return (
     <div className={style.authLayout}>
       <Row>
@@ -19,5 +19,3 @@ const Auth = ({ children }) => {
     </div>
   );
 };
-
-export default Auth;

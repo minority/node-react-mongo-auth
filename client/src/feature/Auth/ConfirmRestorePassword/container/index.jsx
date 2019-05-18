@@ -2,8 +2,8 @@ import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { withRouter, Link } from "react-router-dom";
-import { confirmRestorePasswordRequest } from "./actions";
-import Loader from "../../Shared/Loader";
+import { confirmRestorePasswordRequest } from "../actions";
+import { Loader } from "../../../Shared/Loader";
 import style from "./index.module.scss";
 
 const ConfirmRestorePassword = props => {
@@ -49,14 +49,14 @@ ConfirmRestorePassword.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  isLoading: state.confirmRestorePassword.isLoading,
-  isAuth: state.signin.isAuth,
-  isError: state.confirmRestorePassword.isError,
-  isSuccess: state.confirmRestorePassword.isSuccess,
-  errorMessage: state.confirmRestorePassword.errorMessage
+  isLoading: state.auth.confirmRestorePassword.isLoading,
+  isAuth: state.auth.signin.isAuth,
+  isError: state.auth.confirmRestorePassword.isError,
+  isSuccess: state.auth.confirmRestorePassword.isSuccess,
+  errorMessage: state.auth.confirmRestorePassword.errorMessage
 });
 
-export default withRouter(
+export const ConfirmRestorePasswordContainer = withRouter(
   connect(
     mapStateToProps,
     { confirmRestorePasswordRequest }

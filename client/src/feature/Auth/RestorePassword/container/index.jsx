@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import PropTypes from "prop-types";
-import RestorePasswordForm from "./components/RestorePasswordForm";
+import { RestorePasswordForm } from "../components/RestorePasswordForm";
 import { connect } from "react-redux";
-import { restorePasswordRequest } from "./actions";
+import { restorePasswordRequest } from "../actions";
 import { withRouter, Link } from "react-router-dom";
 import style from "./index.module.scss";
 
@@ -43,14 +43,14 @@ RestorePassword.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  isLoading: state.restorePassword.isLoading,
-  isAuth: state.signin.isAuth,
-  isError: state.restorePassword.isError,
-  isSuccess: state.restorePassword.isSuccess,
-  errorMessage: state.restorePassword.errorMessage
+  isLoading: state.auth.restorePassword.isLoading,
+  isAuth: state.auth.signin.isAuth,
+  isError: state.auth.restorePassword.isError,
+  isSuccess: state.auth.restorePassword.isSuccess,
+  errorMessage: state.auth.restorePassword.errorMessage
 });
 
-export default withRouter(
+export const RestorePasswordContainer = withRouter(
   connect(
     mapStateToProps,
     { restorePasswordRequest }

@@ -3,7 +3,7 @@ import { Form, Icon, Input, Button } from "antd";
 import style from "./index.module.scss";
 import { Link } from "react-router-dom";
 
-const RestorePasswordForm = props => {
+const RestorePasswordFormComponent = props => {
   const { getFieldDecorator } = props.form;
 
   const handleSubmit = e => {
@@ -55,8 +55,6 @@ const RestorePasswordForm = props => {
   );
 };
 
-const WrappedRestorePasswordForm = Form.create({ name: "signinForm" })(
-  RestorePasswordForm
+export const RestorePasswordForm = Form.create({ name: "signinForm" })(
+  RestorePasswordFormComponent
 );
-
-export default WrappedRestorePasswordForm;

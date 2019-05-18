@@ -1,8 +1,8 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import routes from "./routes";
-import PrivateRoute from "./feature/Shared/PrivateRoute";
-import Layout from "./feature/Shared/Layout";
+import { routes } from "./routes";
+import { PrivateRoute } from "./feature/Shared/PrivateRoute";
+import { Layout } from "./feature/Shared/Layout";
 
 const App = () => {
   return (

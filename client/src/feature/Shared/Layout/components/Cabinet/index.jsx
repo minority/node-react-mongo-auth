@@ -7,12 +7,12 @@ import PropTypes from "prop-types";
 
 const { Content } = Layout;
 
-const Cabinet = props => {
+const Cabinet = ({ children, menuList }) => {
   return (
     <Layout style={{ minHeight: "100vh" }}>
       <Header />
       <Layout>
-        <Sidebar menuList={props.menuList} />
+        <Sidebar menuList={menuList} />
         <Layout style={{ padding: "0 24px 24px" }}>
           <Content
             style={{
@@ -22,7 +22,7 @@ const Cabinet = props => {
               minHeight: 300
             }}
           >
-            {props.children}
+            {children}
           </Content>
           <Footer />
         </Layout>

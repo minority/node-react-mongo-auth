@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import PropTypes from "prop-types";
-import { Row, Col } from "antd";
 import SignupForm from "./components/SignupForm";
 import { connect } from "react-redux";
 import { signupRequest } from "./actions";
@@ -13,34 +12,24 @@ const Signup = props => {
   });
 
   return (
-    <Row>
-      <Col
-        xs={{ span: 14, offset: 5 }}
-        sm={{ span: 12, offset: 6 }}
-        md={{ span: 10, offset: 7 }}
-        lg={{ span: 8, offset: 8 }}
-        xl={{ span: 6, offset: 9 }}
-      >
-        <div className={style.signupFormWrapper}>
-          {props.isSuccess ? (
-            <div className={style.authHeader}>
-              <h1>Success</h1>
-              <p>A password is sent to your email address.</p>
-              <p>
-                Go to <Link to="/">Sign in</Link>
-              </p>
-            </div>
-          ) : (
-            <SignupForm
-              onSubmit={props.signupRequest}
-              isLoading={props.isLoading}
-              isError={props.isError}
-              errorMessage={props.errorMessage}
-            />
-          )}
+    <div className={style.signupFormWrapper}>
+      {props.isSuccess ? (
+        <div className={style.authHeader}>
+          <h1>Success</h1>
+          <p>A password is sent to your email address.</p>
+          <p>
+            Go to <Link to="/">Sign in</Link>
+          </p>
         </div>
-      </Col>
-    </Row>
+      ) : (
+        <SignupForm
+          onSubmit={props.signupRequest}
+          isLoading={props.isLoading}
+          isError={props.isError}
+          errorMessage={props.errorMessage}
+        />
+      )}
+    </div>
   );
 };
 

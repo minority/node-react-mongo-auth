@@ -1,4 +1,4 @@
-import api from "../../../lib/api";
+import { api } from "../../../helpers/api";
 
 export const SIGNUP_REQUEST_PROCESS = "SIGNUP_REQUEST_PROCESS";
 export const SIGNUP_REQUEST_ERROR = "SIGNUP_REQUEST_ERROR";

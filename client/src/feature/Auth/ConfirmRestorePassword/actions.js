@@ -1,4 +1,4 @@
-import api from "../../../lib/api";
+import { api } from "../../../helpers/api";
 
 export const CONFIRM_RESTORE_REQUEST_PROCESS =
   "CONFIRM_RESTORE_REQUEST_PROCESS";

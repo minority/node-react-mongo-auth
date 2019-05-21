@@ -6,6 +6,14 @@ import * as serviceWorker from "./serviceWorker";
 import { Provider } from "react-redux";
 import "./index.scss";
 
+import { getAuthUserData } from "./helpers/auth";
+import { signinSuccess } from "./feature/Auth/Signin/actions";
+
+const userAuth = getAuthUserData();
+if (userAuth) {
+  store.dispatch(signinSuccess(userAuth));
+}
+
 ReactDOM.render(
   <Provider store={store}>
     <App />

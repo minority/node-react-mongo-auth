@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { withRouter, Link } from "react-router-dom";
 import { confirmRestorePasswordRequest } from "../actions";
-import { Loader } from "../../../Shared/Loader";
+import { Loader } from "../../../Common/Loader";
 import style from "./index.module.scss";
 
 const ConfirmRestorePassword = props => {

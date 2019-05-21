@@ -1,8 +1,8 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { routes } from "./routes";
-import { PrivateRoute } from "./feature/Shared/PrivateRoute";
-import { Layout } from "./feature/Shared/Layout";
+import { AuthRoute } from "./feature/Common/AuthRoute";
+import { Layout } from "./feature/Common/Layout";
 
 const App = () => {
   return (
@@ -11,7 +11,7 @@ const App = () => {
         <Switch>
           {routes.map((item, i) =>
             item.isAuth ? (
-              <PrivateRoute
+              <AuthRoute
                 path={item.path}
                 component={item.component}
                 key={i}

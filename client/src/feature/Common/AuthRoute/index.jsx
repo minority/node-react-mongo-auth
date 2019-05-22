@@ -9,11 +9,13 @@ const AuthRouteContainer = ({ component: Component, ...rest }) => {
   useEffect(() => {
     const userAuth = getAuthUserData();
 
-    const refreshToken = userAuth.refreshToken;
-    const accessToken = userAuth.accessToken;
+    if (userAuth) {
+      const refreshToken = userAuth.refreshToken;
+      const accessToken = userAuth.accessToken;
 
-    if (!checkTokenExpire(refreshToken) || !checkTokenExpire(accessToken)) {
-      rest.refreshTokenRequest(refreshToken);
+      if (!checkTokenExpire(refreshToken) || !checkTokenExpire(accessToken)) {
+        rest.refreshTokenRequest(refreshToken);
+      }
     }
   });
 
@@ -29,7 +31,8 @@ const AuthRouteContainer = ({ component: Component, ...rest }) => {
 
 AuthRouteContainer.propTypes = {
   isAuth: PropTypes.bool.isRequired,
-  component: PropTypes.func.isRequired
+  component: PropTypes.func.isRequired,
+  refreshTokenRequest: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({

@@ -1,4 +1,4 @@
-import user from "./user";
+import users from "./users";
 import auth from "./auth";
 
-export default [user, auth];
+export default [users, auth];

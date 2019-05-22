@@ -4,6 +4,7 @@ import { Sidebar } from "./Sidebar";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
 import PropTypes from "prop-types";
+import style from "./index.module.scss";
 
 const { Content } = Layout;
 
@@ -15,6 +16,7 @@ const CabinetComponent = ({ children, menuList, user, logout }) => {
         <Sidebar menuList={menuList} />
         <Layout style={{ padding: "0 24px 24px" }}>
           <Content
+            className={style.cabinetContent}
             style={{
               background: "#fff",
               padding: 24,

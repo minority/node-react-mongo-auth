@@ -7,14 +7,15 @@ const axiosInstace = axios.create({
   timeout: 20000
 });
 
-const authUser = getAuthUserData();
-if (authUser) {
-  axiosInstace.defaults.headers.common["Authorization"] = `Bearer ${
-    authUser.accessToken
-  }`;
-}
-
 export const api = (requestType, url, payload) => {
+  const authUser = getAuthUserData();
+
+  if (authUser) {
+    axiosInstace.defaults.headers.common["Authorization"] = `Bearer ${
+      authUser.accessToken
+    }`;
+  }
+
   return new Promise((resolve, reject) => {
     axiosInstace[requestType](url, payload)
       .then(response => {

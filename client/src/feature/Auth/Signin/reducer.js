@@ -2,9 +2,7 @@ import {
   SIGNIN_REQUEST_PROCESS,
   SIGNIN_SUCCESS,
   SIGNIN_REQUEST_ERROR,
-  LOGOUT,
-  REFRESH_TOKEN_SUCCESS,
-  REFRESH_TOKEN_ERROR
+  LOGOUT
 } from "./actions";
 
 const initialState = {
@@ -43,14 +41,6 @@ export const signinReducer = (state = initialState, action) => {
         refreshToken: action.data.refreshToken
       };
     case LOGOUT:
-      return { ...state, isAuth: false };
-    case REFRESH_TOKEN_SUCCESS:
-      return {
-        ...state,
-        accessToken: action.data.accessToken,
-        refreshToken: action.data.refreshToken
-      };
-    case REFRESH_TOKEN_ERROR:
       return { ...state, isAuth: false };
     default:
       return state;

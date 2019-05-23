@@ -24,7 +24,6 @@ export const signupRequest = formData => async dispatch => {
 
     dispatch(signupSuccess(data));
   } catch (error) {
-    const errorObject = error.response ? error.response.data : error;
-    dispatch(signupRequestError(errorObject));
+    dispatch(signupRequestError(error.response ? error.response.data : error));
   }
 };

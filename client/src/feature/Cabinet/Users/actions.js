@@ -26,7 +26,6 @@ export const usersFetchRequest = () => async dispatch => {
 
     dispatch(usersRequestSuccess(data));
   } catch (error) {
-    const errorObject = error.response ? error.response.data : error;
-    dispatch(usersRequestError(errorObject));
+    dispatch(usersRequestError(error.response ? error.response.data : error));
   }
 };

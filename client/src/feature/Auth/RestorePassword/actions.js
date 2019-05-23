@@ -24,7 +24,6 @@ export const restorePasswordRequest = formData => async dispatch => {
 
     dispatch(restoreSuccess(data));
   } catch (error) {
-    const errorObject = error.response ? error.response.data : error;
-    dispatch(restoreRequestError(errorObject));
+    dispatch(restoreRequestError(error.response ? error.response.data : error));
   }
 };

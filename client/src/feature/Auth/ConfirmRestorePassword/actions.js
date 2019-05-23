@@ -27,7 +27,8 @@ export const confirmRestorePasswordRequest = token => async dispatch => {
 
     dispatch(confirmRestoreSuccess(data));
   } catch (error) {
-    const errorObject = error.response ? error.response.data : error;
-    dispatch(confirmRestoreRequestError(errorObject));
+    dispatch(
+      confirmRestoreRequestError(error.response ? error.response.data : error)
+    );
   }
 };

@@ -14,7 +14,7 @@ const initialState = {
 export const usersReducer = (state = initialState, action) => {
   switch (action.type) {
     case USERS_REQUEST_PROCESS:
-      return { ...state, isLoading: true };
+      return { ...state, isError: false, errorMessage: "", isLoading: true };
     case USERS_REQUEST_ERROR:
       return {
         ...state,
@@ -26,9 +26,7 @@ export const usersReducer = (state = initialState, action) => {
       return {
         ...state,
         data: action.data,
-        isLoading: false,
-        isError: false,
-        errorMessage: ""
+        isLoading: false
       };
     default:
       return state;

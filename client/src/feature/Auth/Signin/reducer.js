@@ -22,7 +22,7 @@ const initialState = {
 export const signinReducer = (state = initialState, action) => {
   switch (action.type) {
     case SIGNIN_REQUEST_PROCESS:
-      return { ...state, isLoading: true };
+      return { ...state, isError: false, errorMessage: "", isLoading: true };
     case SIGNIN_REQUEST_ERROR:
       return {
         ...state,
@@ -32,9 +32,8 @@ export const signinReducer = (state = initialState, action) => {
       };
     case SIGNIN_SUCCESS:
       return {
+        ...state,
         isLoading: false,
-        isError: false,
-        errorMessage: "",
         isAuth: true,
         user: action.data.user,
         accessToken: action.data.accessToken,

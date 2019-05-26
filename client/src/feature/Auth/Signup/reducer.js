@@ -14,7 +14,7 @@ const initialState = {
 export const signupReducer = (state = initialState, action) => {
   switch (action.type) {
     case SIGNUP_REQUEST_PROCESS:
-      return { ...state, isLoading: true };
+      return { ...state, isError: false, errorMessage: "", isLoading: true };
     case SIGNUP_REQUEST_ERROR:
       return {
         ...state,
@@ -24,10 +24,9 @@ export const signupReducer = (state = initialState, action) => {
       };
     case SIGNUP_SUCCESS:
       return {
+        ...state,
         isSuccess: true,
-        isLoading: false,
-        isError: false,
-        errorMessage: ""
+        isLoading: false
       };
     default:
       return state;

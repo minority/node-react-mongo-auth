@@ -14,7 +14,7 @@ const initialState = {
 export const restorePasswordReducer = (state = initialState, action) => {
   switch (action.type) {
     case RESTORE_REQUEST_PROCESS:
-      return { ...state, isLoading: true };
+      return { ...state, isError: false, errorMessage: "", isLoading: true };
     case RESTORE_REQUEST_ERROR:
       return {
         ...state,
@@ -24,10 +24,9 @@ export const restorePasswordReducer = (state = initialState, action) => {
       };
     case RESTORE_SUCCESS:
       return {
+        ...state,
         isSuccess: true,
-        isLoading: false,
-        isError: false,
-        errorMessage: ""
+        isLoading: false
       };
     default:
       return state;

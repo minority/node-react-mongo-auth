@@ -2,12 +2,11 @@
 
 ## Description project
 
-> Project is in its early stages
-
 ### Server side
 
 - Simple structure project
-- Rest api registration, authorization and restore (with refresh token, made by description https://gist.github.com/zmts/802dc9c3510d79fd40f9dc38a12bccfc )
+- JWT auth with refresh token (made by description https://gist.github.com/zmts/802dc9c3510d79fd40f9dc38a12bccfc )
+- Rest api registration, authorization, restore and confirm restore
 - Autogenerate password
 - Send email from mailgun
 - Validation schema wrapped AJV
@@ -17,17 +16,19 @@
 - Handler error and logging
 - Docker compose
 
-### Client side (in progress)
+### Client side
 
 - Simple structure project
 - Create react app
 - Design library Ant.Design
-- Redux for state menagment 
+- Redux for state menagment
+- Token is stored in LocalStorage
+- Uses Axios interceptors for refresh token
 
 #### Preview
 
-![Signin](https://downloader.disk.yandex.ru/preview/0457efcf912fe26c393a436fd32317e471190bf699f08d1a2c604aa40e7bd0c0/5ce6edbb/wkcqGRqzueo2Lev_Q6EMKZtYflmIL6yVMN6mUzsV4cxIcltQThfDBuZz9vEBx9s5dDR57BUXotLWGOIJkYpRKw%3D%3D?uid=0&filename=DeepinScreenshot_%D0%B2%D1%8B%D0%B1%D0%B5%D1%80%D0%B8%D1%82%D0%B5-%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D1%8C_20190523175106.png&disposition=inline&hash=&limit=0&content_type=image%2Fpng&tknv=v2&size=2048x2048)
-![Cabinet](https://downloader.disk.yandex.ru/preview/4db17838eda8af830e8608ef09042c422656725128cc87d04a6ddbb0aadeaadd/5ce6edd5/ArywPxYGJFwqUnZwQT9EgZtYflmIL6yVMN6mUzsV4czMMwHGHxe1MP6TAMdOfQPTpZ2cwSuELZGpU8XKhiNDmA%3D%3D?uid=0&filename=DeepinScreenshot_%D0%B2%D1%8B%D0%B1%D0%B5%D1%80%D0%B8%D1%82%D0%B5-%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D1%8C_20190523175033.png&disposition=inline&hash=&limit=0&content_type=image%2Fpng&tknv=v2&size=1920x952)
+![Signin](https://uc113075a8ce0b094d7c43c10d03.previews.dropboxusercontent.com/p/thumb/AAeJCwqYcyNNVQom5ttbqjD-0jQlKHKBXWG34_DAUv2RNAehFKCpTIfq_AfwbolRS-Q_PAte90h7p_PcDOd4oHeOUQrZIs3NMlm72DEmRON8r95xllzoDg_p0mg5Is5tSMyBoQ4CF9Gx5M0JSLHLCQ_0QU5ryjVUsan_XS2Q46FqR_j7-6Ed1k9YtufL9THbfmUTa9F9xZEFv2smj-Werj8662QVa7155yXJuJ4K4Bpy47nDDksNFh4AFDT_UK3gIXU_eOV48OoRds7ZUeHHwg_yfdvYopM2ZNy9tLxHNvFujDFvKRp0GG7Zyo4X46JkcVy2rFUlSDNezaDOtiAqGiHbpFn680ACGW2fQMr2U6FewqsdKNYGESZogrOKthU49DI/p.png?fv_content=true&size_mode=5)
+![Cabinet](https://uc7c159166e812d404e56ad80c2b.previews.dropboxusercontent.com/p/thumb/AAe1afyFV71rQfG4IQaLMfP-OSoXwdlfTk21oIGIXcOt_qbH4id5aqbXCTtbOwmFjQXemIA_0wFt6M-oN0GHXNhH2eZohj1GVrMPS6psoaACuPkTvxrSIEQZyZ85_hwX_SqJ2jNnT1ETcWux8pgQBOYurUjfmbuLS0QRlIL1EvepUpaxrKhZPfQRn9yzVl9HaCI7TjLF1DcaVU_48VbzU10mTN9QeU7i01PlcAyGBL1S-bFMqs6OGYAEKoMmapa_cQ55p60-Io-AmrNM-pcxTp7mTx-8rlrN6D1gbVihd4-FlgIeYhO3OsvHdfZtyuOU2I3NSqS6-XVq3WhnyQwd9rJo6joFHl-2Bk81RB1ypbeW1cG_6DUk7ejWcy_AeIN8qCk/p.png?fv_content=true&size_mode=5)
 
 Detailed description of the launch application
  in each of these folders

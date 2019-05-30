@@ -82,6 +82,10 @@ Token find in local email to `/api-server/logs/mail`
 
 `POST: api/auth/logout`
 
+### Exemple url Users List (with Authorization: Bearer token)
+
+`GET: api/users`
+
 ## Error and logging
 
 `/api-server/logs` Write logs error\combined log to prod mode

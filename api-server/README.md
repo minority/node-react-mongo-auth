@@ -30,7 +30,7 @@ Params
 
 `email:test@mail.ru name:test`
 
-Password auto generate, find in local email to (open mail clien) `/api-server/logs/mail`
+Password auto generate, find in local email to (open mail client) `/api-server/logs/mail`
 
 ### Get token
 

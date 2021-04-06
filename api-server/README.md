@@ -2,14 +2,6 @@
 
 Configuration file app `.sample-env` rename to `.env`.
 
-Runs the app in the development mode.
-
-`npm run dev`
-
-Runs the app in the production mode.
-
-`npm run start`
-
 Runs the app from Docker
 
 `sudo docker-compose up`
@@ -20,18 +12,15 @@ AdminMongo `http://0.0.0.0:1234` (Mongo uri in docker containers `mongodb://mong
 
 Mongo (local) `mongodb://localhost:27018`
 
+Runs the app in the development mode.
+
+`npm run dev`
+
+Runs the app in the production mode.
+
+`npm run start`
+
 ## Method API
-
-### Get token 
-
-`POST: /api/auth/signin`
-
-Params
-
-`
-email:test@mail.ru
-password:test
-`
 
 ### Register new user
 
@@ -39,12 +28,17 @@ password:test
 
 Params
 
-`
-email:test@mail.ru
-name:test
-`
+`email:test@mail.ru name:test`
 
-Password auto generate, find in local email to `/api-server/logs/mail`
+Password auto generate, find in local email to (open mail clien) `/api-server/logs/mail`
+
+### Get token
+
+`POST: /api/auth/signin`
+
+Params
+
+`email:test@mail.ru password:test`
 
 ### Refresh token
 
@@ -52,9 +46,7 @@ Password auto generate, find in local email to `/api-server/logs/mail`
 
 Params
 
-`
-refreshToken:idtoken::token
-`
+`refreshToken:idtoken::token`
 
 ### Restore password
 
@@ -62,9 +54,7 @@ refreshToken:idtoken::token
 
 Params
 
-`
-email:test@mail.ru
-`
+`email:test@mail.ru`
 
 ### Confirm restore password
 
@@ -72,9 +62,7 @@ email:test@mail.ru
 
 Params
 
-`
-token:token
-`
+`token:token`
 
 Token find in local email to `/api-server/logs/mail`
 
@@ -108,7 +96,7 @@ Schemas validation to `/api-server/src/schemas`
 
 Example validation route `router.post("/auth/signin", Validate.prepare(authSchemas.signin)`
 
-Example validation error (http code 422): 
+Example validation error (http code 422):
 
 ```js
 {

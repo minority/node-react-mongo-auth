@@ -32,7 +32,7 @@
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "ejs-promise": "^0.3.3",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "http-errors": "^1.8.0",
     "jsonwebtoken": "^8.5.1",
     "kamil-mailcomposer": "^0.1.34",

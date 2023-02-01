@@ -38,7 +38,7 @@
     "kamil-mailcomposer": "^0.1.34",
     "mailgun-js": "^0.22.0",
     "mimelib": "^0.3.1",
-    "mongoose": "^5.12.3",
+    "mongoose": "^5.13.15",
     "mongoose-unique-validator": "^2.0.3",
     "morgan": "^1.10.0",
     "randomatic": "^3.1.1",
